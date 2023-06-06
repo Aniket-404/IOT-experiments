@@ -1,0 +1,51 @@
+int red= 3;
+int blue = 4;
+int green=5;
+char mychar=0;// for incoming serial data
+void setup()
+{
+Serial.begin(9600);
+pinMode(red,OUTPUT);
+pinMode(blue,OUTPUT);
+pinMode(green,OUTPUT);
+}
+void loop()
+{
+// send data only when u receive data
+if (Serial.available()>0)
+{
+//read the incoming byte
+mychar=Serial.read();
+//say what you got
+Serial.print("I received:");
+Serial.println(mychar);
+}
+if (mychar=='r'||mychar=='R')
+{
+digitalWrite(red,HIGH);
+digitalWrite(blue,LOW);
+digitalWrite(green,LOW);
+}
+if (mychar=='b'||mychar=='B')
+{
+digitalWrite(blue,HIGH);
+digitalWrite(red,LOW);
+digitalWrite(green,LOW);
+}
+if (mychar=='g'||mychar=='G')
+{
+digitalWrite(blue,LOW);
+digitalWrite(green,HIGH);
+digitalWrite(red,LOW);
+}
+if(mychar=='i'||mychar=='I')
+{
+mychar=Serial.read();
+digitalWrite(blue,LOW);
+digitalWrite(red,LOW);
+digitalWrite(green,LOW);
+delay(500);
+digitalWrite(green,LOW);
+delay(500);
+}
+}
