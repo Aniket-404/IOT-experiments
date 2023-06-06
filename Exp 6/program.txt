@@ -2,7 +2,7 @@
 #define blue 4
 #define red 3
 int x = 0;
-// the setup function runs once when you press reset or power the board
+// the setup function runs once when you press reset or power the board.
 void setup() {
 // initialize digital pin LED_BUILTIN as an output.
 pinMode(green, OUTPUT);
