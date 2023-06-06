@@ -1,0 +1,26 @@
+#include <DHT.h>
+float tmin=100;
+float tmax=0;
+DHT dht(7, DHT11);
+void setup() {
+Serial.begin(9600);
+dht.begin();
+}
+void loop() {
+float temp1 = 0, temp2 = 0, temp3 = 0;
+float t = dht.readTemperature();
+float h = dht.readHumidity();
+if (t > tmax) {
+tmax = t;
+}
+if (t < tmin) {
+tmin = t;
+}
+Serial.print("\nMaximum Temperature = ");
+Serial.print(tmax);
+Serial.print("℃");
+Serial.print("\tMinimum Temperature = ");
+Serial.print(tmin);
+Serial.print("℃");
+delay(2000);
+}
