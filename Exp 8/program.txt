@@ -1,1 +1,15 @@
-
+int num; // Declare integer variable to store the user input
+void setup() {
+Serial.begin(9600); // Initialize serial communication
+}
+void loop() {
+Serial.println("Enter a number: "); // Ask the user for a number
+while (!Serial.available()); // Wait for user input
+num = Serial.parseInt(); // Read the user input as an integer
+int square = num * num; // Calculate the square of the user input
+Serial.print("The square of "); // Output the result to the serial monitor
+Serial.print(num);
+Serial.print(" is ");
+Serial.println(square);
+delay(1000); // Delay for 1 second before asking for another input
+}
