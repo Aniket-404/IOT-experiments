@@ -1,0 +1,34 @@
+#define green 5
+#define blue 4
+#define red 3
+int x = 0;
+// the setup function runs once when you press reset or power the board
+void setup() {
+// initialize digital pin LED_BUILTIN as an output.
+pinMode(green, OUTPUT);
+pinMode(blue, OUTPUT);
+pinMode(red, OUTPUT);
+Serial.begin(9600);
+}
+// the loop function runs over and over again forever
+void loop() {
+x++;
+x = x % 300;
+Serial.println(x);
+if (x < 100) {
+digitalWrite(green, HIGH); // turn the LED on (HIGH is the voltage level)
+delay(50); // wait for a second
+digitalWrite(green, LOW); // turn the LED off by making the voltage LOW
+delay(50);
+} else if (x > 100 && x < 200) {
+digitalWrite(blue, HIGH); // turn the LED on (HIGH is the voltage level)
+delay(50); // wait for a second
+digitalWrite(blue, LOW); // turn the LED off by making the voltage LOW
+delay(50);
+} else if (x > 200) {
+digitalWrite(red, HIGH); // turn the LED on (HIGH is the voltage level)
+delay(50); // wait for a second
+digitalWrite(red, LOW); // turn the LED off by making the voltage LOW
+delay(50);
+}
+}
